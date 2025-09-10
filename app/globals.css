@@ -1,2 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&display=swap');
 @import "tailwindcss";
 
+html,
+body,
+.main_container {
+    @apply m-0 w-[100%] h-[100%] p-0 bg-[#1b1b1b]
+}
+
+* {
+    color: white;
+}
+
+.cellphone_bg {
+    @apply bg-[color:#82ebda] w-[70%] h-[85vh] max-[610px]:h-[75svh] max-w-[500px] min-w-[300px] top-[100%] left-[50%] relative flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -100%);
+    border-radius: 15px 15px 0 0;
+    border: 12px solid #F0F8FF;
+    border-bottom: none;
+    background-image: radial-gradient(white 10%, transparent 11%);
+    background-size: 20px 20px;
+
+}
+
+.cellphone_text {
+    @apply w-full text-[220px] font-[900] ml-[-20px] max-[610px]:text-[160px];
+    text-align: center;
+    text-shadow: 3px 8px 2px #ed2367;
+
+}
+
+.orbitron {
+    font-family: 'Orbitron';
+}
+
+.cellphone_notch {
+    @apply w-[65%] h-[35px] max-[610px]:h-[25px] bg-[#F0F8FF] top-0 absolute;
+    border-radius: 0 0 200px 200px;
+}
+
+.cellphone_instagram_frame {
+    @apply w-[90%] h-[60vh] max-[610px]:h-[50svh] bg-white rounded-[40px] absolute;
+}
+
+.cellphone_instragram_frame_bottom_section{
+    @apply w-[96%] ml-[2%] mt-[13%] bg-black;
+}
+
+.cellphone_instragram_pfp{
+    @apply rounded-full w-[45px] h-[45px] mt-[5px] ml-[20px] absolute;
+}
