@@ -11,6 +11,28 @@ body,
     color: white;
 }
 
+::-webkit-scrollbar{
+  width: 1px;
+}
+::-webkit-scrollbar-thumb{
+  background: #bdbdbd;
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #9e9e9e;	
+}
+
+::-webkit-scrollbar-thumb-active{
+  background: #a6a6a6;	
+}
+::-webkit-scrollbar-track-piece{
+  background: transparent;
+}
+
+.navigation_menu{
+    @apply w-[300px] h-[60px] bg-white z-10 relative text-white;
+}
+
 .cellphone_bg {
     @apply w-[70%] h-[85vh] max-[610px]:h-[75svh] max-w-[500px] min-w-[300px] top-[100%] left-[50%] absolute flex;
     align-items: center;
@@ -20,9 +42,11 @@ body,
     border: 13px solid black;
     border-bottom: none;
     background-color: #FCFCF7;
-    background-image: radial-gradient(black 10%, transparent 11%);
-    background-size: 20px 20px;
     box-shadow: 0 0 2px 7px rgba(0,0,0,.4);
+}
+
+.cellphone_miku_sitting{
+    @apply relative w-[150px] h-auto;
 }
 
 .cellphone_text {
@@ -51,25 +75,20 @@ body,
     background:linear-gradient(185deg,#fffeec,#fffeec,#fffeec,#ffebda,#f3d3c6,#b79c93);
 }
 
-.cellphone_instragram_pfp{
-    @apply rounded-full w-[45px] h-[45px] mt-[5px] ml-[20px] absolute;
-}
-
 .cellphone_instragram_frame_top{
-    @apply bg-[#afb9c2] w-[101%] h-[8vh] block mt-[-5px] ml-[-1.5px] z-10;
+    @apply w-[101%] h-[8vh] block mt-[-5px] ml-[-1.5px] z-10;
     border-radius: 42px 42px 0 0;
+    background:linear-gradient(190deg,#818a97,#afb9c2,#5c6370,#3a3d46)
 }
 
 .cellphone_instragram_frame_bottom{
-   @apply bg-[#aed6d5] w-[101%] h-[8vh] flex items-center p-[10px] mt-[-5px] ml-[-1.5px] top-[102%] transform-[translateY(-100%)] z-10 absolute;
+   @apply w-[101%] h-[8vh] flex items-center p-[10px] mt-[-5px] ml-[-1.5px] top-[102%] transform-[translateY(-100%)] z-10 absolute;
    border-radius: 0 0 42px 42px;
+   background: linear-gradient(#7fc2c5,#aed6d5)
 }
 
-.cellphone_instragram_frame_bottom img{
- @apply w-[35px] h-[35px] ml-[10px];
-}   
-
 .character_title{
-    @apply w-full h-[100vh] text-[500px] font-[900] overflow-y-hidden ;
-    letter-spacing: 60px;
+    @apply w-full h-[100vh] text-[55vw] font-[900] pt-[100px] overflow-y-hidden flex scroll-smooth;
+    letter-spacing: 20px;
+    align-items: center;
 }
