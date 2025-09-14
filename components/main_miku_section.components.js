@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, React, useState } from "react";
 import About_miku_section from "@/components/about_miku_section.components";
+import Contact_miku_section from "./contact_miku_section.components";
 
 
 export default function Main_miku_section() {
@@ -41,7 +42,7 @@ export default function Main_miku_section() {
                     <div className="navigation_menu">
                         <a id="start" href="#main_miku_section">Home</a>
                         <a href="#about_miku_section">About</a>
-                        <a>Contact</a>
+                        <a href="#contact_miku_section">Contact</a>
                     </div>
                     <div id="cellphone_bg" className="cellphone_bg">
                         <div className="cellphone_notch"></div>
@@ -49,13 +50,13 @@ export default function Main_miku_section() {
 
 
                         <p className="orbitron cellphone_text"><u>01</u></p>
-                        <button className="orbitron continue_button">Look More!</button>
+                        <a href="#about_miku_section" className="orbitron continue_button">Look More!</a>
                         <Usarwindow fun={re_adjust} />
                     </div>
 
                 </div>
                 <About_miku_section />
-
+                <Contact_miku_section/>
             </>
         );
     }

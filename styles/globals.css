@@ -77,17 +77,20 @@ body,
 }
 
 .navigation_menu,
-.about_miku_section_navigation_menu {
+.about_miku_section_navigation_menu,
+.contact_miku_section_navigation_menu {
     @apply h-[60px] z-10 absolute text-white inline-flex items-center p-2.5 gap-8;
     border-radius: 0 0 5px 0;
     top: 0;
 }
 
-.about_miku_section_navigation_menu {
+.about_miku_section_navigation_menu,
+.contact_miku_section_navigation_menu {
     @apply gap-3 inline-flex top-[100%] h-[100px] transform-[translateY(-100%)];
     backdrop-filter: blur(20px);
     border-radius: 20px
 }
+
 
 .navigation_menu a {
     @apply font-[700] cursor-pointer text-xl;
@@ -100,7 +103,12 @@ body,
 }
 
 .about_miku_section_navigation_menu a img {
-    @apply w-[50px] h-[50px] p-[8px] rounded-full hover:bg-[#a6c1c6] transition-colors cursor-pointer ;
+    @apply w-[50px] h-[50px] p-[8px] rounded-full hover:bg-[#a6c1c6] transition-colors cursor-pointer;
+    border: 3px solid #a6c1c6;
+}
+
+.contact_miku_section_navigation_menu a img {
+    @apply w-[50px] h-[50px] p-[8px] rounded-full hover:bg-[#a6c1c6] transition-colors cursor-pointer;
     border: 3px solid #a6c1c6;
 }
 
@@ -156,7 +164,7 @@ body,
 }
 
 .continue_button {
-    @apply text-white font-extrabold bg-[#ed2367] w-[300px] h-[60px] rounded-[5px] cursor-pointer p-2 absolute z-10;
+    @apply text-white font-extrabold bg-[#ed2367] w-[300px] h-[60px] rounded-[5px] cursor-pointer p-2 absolute z-10 flex items-center justify-center;
     transition: box-shadow .3s, transform .3s;
     box-shadow: 0 0 10px #FF00A0;
     top: 90%;
@@ -171,25 +179,39 @@ body,
 /*about_miku_section*/
 
 .about_miku_section {
-    @apply w-full h-[100vh] bg-[#111111] relative;
+    @apply w-full h-[100vh] bg-[#009EDF] relative;
     scroll-snap-align: center;
 }
 
-.about_miku_section_title {
-    @apply text-white text-[calc(100vw*.09)] w-[calc(100%-(100vh*.60))] h-[88vh] pl-[10px] font-bold top-0 p-0 absolute;
-    text-shadow: 0 0 10px #ed2367;
+.about_miku_section_title,
+.contact_miku_section_title {
+    @apply text-white text-[calc(100vw*.085)] pl-[10px] font-bold top-0 p-0 absolute;
     white-space: nowrap;
 }
 
 .about_miku_section_miku_image {
-    @apply h-[100vh] left-[100%] transform-[translateX(-100%)] absolute;
-    filter: drop-shadow(6px 0 1px white);
+    @apply h-[50vh] left-[80%] top-[80%] absolute;
+    transform: translate(-80%, -80%);
+    filter: drop-shadow(7px 70px 3px rgba(0, 0, 0, .3));
 }
 
-.about_miku_section_description{
-    @apply w-[calc(100%-(100vh*.75))] top-[21%] p-[10px] text-justify absolute;
+/*contact_miku_section*/
+
+.contact_miku_section {
+    @apply w-full h-[100vh] bg-[#009EDF] relative flex items-center justify-center;
+    scroll-snap-align: center;
 }
 
+.contact_miku_section_image {
+    @apply p-[20px] rounded-[50px] object-cover max-h-[80vh];
+    border: 2px solid rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.footer {
+    @apply w-full h-[130px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
+    background-color: rgba(0, 0, 0, .8);
+}
 
 
 
@@ -229,7 +251,7 @@ body,
         }
 
         100% {
-            transform: translateX(-1050px);
+            transform: translateX(-500px);
         }
     }
 
@@ -245,14 +267,67 @@ body,
     }
 
     .about_miku_section_miku_image {
-        @apply h-[60vh] left-[60%] top-[101%] transform-[translate(-60%,-101%)] absolute;
+        @apply h-[60vh] left-[60%] top-[101%] absolute;
+        transform: translate(-60%, -101%);
     }
 
-    .about_miku_section_title {
-        @apply text-white text-[45px] w-full;
+    .about_miku_section_title,
+    .contact_miku_section_title {
+        @apply text-white text-[42px] w-full;
+        letter-spacing: 1.5px;
         text-align: center;
     }
 
+    .about_miku_section_navigation_menu,
+    .contact_miku_section_navigation_menu {
+        @apply gap-2 inline-flex top-[99%] left-[50%] h-[60px];
+        transform: translate(-50%, -99%);
+    }
+
+    .contact_miku_section_navigation_menu {
+        @apply gap-2 inline-flex top-[15%] left-[50%] h-[60px];
+        transform: translate(-50%, -15%);
+    }
+
+    .about_miku_section_miku_image {
+        @apply hidden;
+
+    }
+
+    .main_miku_info_container {
+        @apply pl-[5px] pr-[5px] absolute block gap-0;
+    }
+
+    .miku_info_containers {
+        @apply w-full h-[26%] bg-white rounded-2xl mb-[15px] p-[4px];
+    }
+
+    .miku_image_slide {
+        @apply w-[28%] h-full object-cover;
+        border-radius: 16px;
+    }
+
+    .miku_containers_titles {
+        @apply top-[-100%] text-2xl relative left-[30%] w-[70%];
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        letter-spacing: 3px;
+    }
+
+    .miku_containers_descriptions {
+        @apply top-[-107%] text-[13.5px] relative left-[28.5%] w-[70%] p-[5px] text-justify;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+    }
+
+    /*contact_miku_section*/
+    .contact_miku_section {
+        @apply w-full h-[100svh] bg-[#009EDF] relative flex items-center justify-center;
+        scroll-snap-align: center;
+    }
 
 }
 
