@@ -1,10 +1,18 @@
 'use client'
 import { useEffect, React, useState } from "react";
+import About_miku_section from "@/components/about_miku_section.components";
+
 
 export default function Main_miku_section() {
 
     const [is_ready, set_is_ready] = useState(true);
 
+    useEffect(() => {
+        if (window.location.hash) {
+
+            history.replaceState(null, null, window.location.pathname);
+        }
+    }, []);
 
     function re_adjust() {
         if (document.getElementById('cellphone_miku_sitting') == null) {
@@ -17,7 +25,6 @@ export default function Main_miku_section() {
         }
     }
 
-
     useEffect(() => {
         setTimeout(() => {
             set_is_ready(false);
@@ -28,20 +35,27 @@ export default function Main_miku_section() {
         re_adjust();
         return (
             <>
-                <p id="character_title" className="bebas_neue character_title">HATSUNE'MIKU</p>
-                <div className="navigation_menu">
-                    <p>Home</p>
-                    <p>About</p>
-                    <p>Contact</p>
-                </div>
-                <div id="cellphone_bg" className="cellphone_bg">
-                    <div className="cellphone_notch"></div>
-                    <img id="cellphone_miku_sitting" className="cellphone_miku_sitting" src="images/miku_sit_transparent.png" />
-             
+                <div id='main_miku_section' className='main_miku_section'>
+                    <p id="character_title" className="bebas_neue character_title">HATSUNE MIKU</p>
 
-                    <p className="orbitron cellphone_text"><u>01</u></p>
-                    <Usarwindow fun={re_adjust} />
+                    <div className="navigation_menu">
+                        <a id="start" href="#main_miku_section">Home</a>
+                        <a href="#about_miku_section">About</a>
+                        <a>Contact</a>
+                    </div>
+                    <div id="cellphone_bg" className="cellphone_bg">
+                        <div className="cellphone_notch"></div>
+                        <img id="cellphone_miku_sitting" className="cellphone_miku_sitting" src="images/miku_sit_transparent.png" />
+
+
+                        <p className="orbitron cellphone_text"><u>01</u></p>
+                        <button className="orbitron continue_button">Look More!</button>
+                        <Usarwindow fun={re_adjust} />
+                    </div>
+
                 </div>
+                <About_miku_section />
+
             </>
         );
     }

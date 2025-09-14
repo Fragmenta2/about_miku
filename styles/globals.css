@@ -4,7 +4,12 @@
 html,
 body,
 .main_container {
-    @apply m-0 w-[100%] h-[100%] p-0 bg-[#1b1b1b] ;
+    @apply m-0 w-[100%] h-[100%] p-0 bg-transparent;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior: contain;
+    touch-action: cross-slide-y;
 }
 
 * {
@@ -12,8 +17,7 @@ body,
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    width: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -33,8 +37,27 @@ body,
     background: transparent;
 }
 
+.orbitron {
+    font-family: 'Orbitron';
+}
+
+.bebas_neue {
+    font-family: 'Bebas Neue';
+}
+
+.josefin {
+    font-family: 'Josefin Sans';
+}
+
+/*main_miku_section*/
+
+.main_miku_section {
+    @apply w-full h-[100vh] bg-[#009EDF] relative;
+    scroll-snap-align: center;
+}
+
 .loading_container {
-    @apply m-0 w-[100%] h-[100%] p-0 bg-[#1b1b1b] flex items-center justify-center;
+    @apply m-0 w-[100%] h-[100%] p-0 bg-[#009EDF] flex items-center justify-center;
 }
 
 .loading {
@@ -53,24 +76,36 @@ body,
     }
 }
 
-.navigation_menu {
-    @apply  h-[60px]  z-10 absolute text-white inline-flex items-center p-2.5 gap-8;  
+.navigation_menu,
+.about_miku_section_navigation_menu {
+    @apply h-[60px] z-10 absolute text-white inline-flex items-center p-2.5 gap-8;
     border-radius: 0 0 5px 0;
-    top: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     top: 0;
 }
 
+.about_miku_section_navigation_menu {
+    @apply gap-3 inline-flex top-[100%] h-[100px] transform-[translateY(-100%)];
+    backdrop-filter: blur(20px);
+    border-radius: 20px
+}
 
-.navigation_menu p{
+.navigation_menu a {
     @apply font-[700] cursor-pointer text-xl;
     font-family: 'Josefin Sans';
 }
 
+.navigation_menu a:hover {
+    border-bottom: 3px solid white;
+    margin-bottom: -3px;
+}
+
+.about_miku_section_navigation_menu a img {
+    @apply w-[50px] h-[50px] p-[8px] rounded-full hover:bg-[#a6c1c6] transition-colors cursor-pointer ;
+    border: 3px solid #a6c1c6;
+}
 
 .cellphone_bg {
-    @apply w-[70%] h-[85vh] max-[610px]:h-[75svh] max-w-[500px] min-w-[300px] top-[100%] left-[50%] absolute flex;
+    @apply w-[70%] h-[85vh] max-w-[500px] min-w-[300px] top-[100%] left-[50%] absolute flex;
     align-items: center;
     justify-content: center;
     transform: translate(-50%, -100%);
@@ -86,7 +121,7 @@ body,
 }
 
 .cellphone_text {
-    @apply w-full text-[220px] font-[900] ml-[-20px] max-[610px]:text-[160px] absolute;
+    @apply w-full text-[220px] font-[900] ml-[-20px] absolute;
     text-align: center;
     color: #ed2367;
 }
@@ -95,24 +130,19 @@ body,
     color: #ed2367;
 }
 
-.orbitron {
-    font-family: 'Orbitron';
-}
-
-.bebas_neue {
-    font-family: 'Bebas Neue';
-}
-
 .cellphone_notch {
-    @apply w-[65%] h-[35px] max-[610px]:h-[25px] bg-[black] top-0 absolute;
+    @apply w-[65%] h-[35px] bg-[black] top-0 absolute;
     border-radius: 0 0 200px 200px;
 }
 
+
 .character_title {
-    @apply absolute h-[100vh] text-[700px] font-[900] pt-[130px] overflow-hidden flex scroll-smooth ;
+    @apply absolute h-[100vh] text-[700px] font-[900] pt-[130px] overflow-hidden flex scroll-smooth;
+    white-space: nowrap;
     letter-spacing: 20px;
+    box-sizing: border-box;
     align-items: center;
-    animation: carousel 30s linear infinite;;
+    animation: carousel 30s linear infinite;
 }
 
 @keyframes carousel {
@@ -124,3 +154,109 @@ body,
         transform: translateX(-3350px);
     }
 }
+
+.continue_button {
+    @apply text-white font-extrabold bg-[#ed2367] w-[300px] h-[60px] rounded-[5px] cursor-pointer p-2 absolute z-10;
+    transition: box-shadow .3s, transform .3s;
+    box-shadow: 0 0 10px #FF00A0;
+    top: 90%;
+    transform: translateY(-90%);
+}
+
+.continue_button:hover {
+    box-shadow: 0 0 15px 5px #FF00A0;
+    transform: translateY(-90%) scale(1.05);
+}
+
+/*about_miku_section*/
+
+.about_miku_section {
+    @apply w-full h-[100vh] bg-[#111111] relative;
+    scroll-snap-align: center;
+}
+
+.about_miku_section_title {
+    @apply text-white text-[calc(100vw*.09)] w-[calc(100%-(100vh*.60))] h-[88vh] pl-[10px] font-bold top-0 p-0 absolute;
+    text-shadow: 0 0 10px #ed2367;
+    white-space: nowrap;
+}
+
+.about_miku_section_miku_image {
+    @apply h-[100vh] left-[100%] transform-[translateX(-100%)] absolute;
+    filter: drop-shadow(6px 0 1px white);
+}
+
+.about_miku_section_description{
+    @apply w-[calc(100%-(100vh*.75))] top-[21%] p-[10px] text-justify absolute;
+}
+
+
+
+
+
+
+
+
+
+
+/*Movil design*/
+@media (max-width:576px) {
+    .main_miku_section {
+        @apply h-[100svh];
+    }
+
+    .cellphone_bg {
+        @apply h-[70svh];
+    }
+
+    .cellphone_text {
+        @apply w-full text-[130px] font-[900] ml-[0] absolute;
+    }
+
+    .continue_button {
+        @apply text-white font-extrabold bg-[#ed2367] w-[200px] h-[60px] rounded-[5px] cursor-pointer p-2 absolute z-10;
+    }
+
+    .character_title {
+        letter-spacing: 5px;
+        @apply text-[100px] pt-[20px] text-[#ccecf9];
+        align-items: start;
+    }
+
+    @keyframes carousel {
+        0% {
+            transform: translateX(100vw);
+        }
+
+        100% {
+            transform: translateX(-1050px);
+        }
+    }
+
+    .navigation_menu {
+        @apply w-full;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*about_miku_section*/
+    .about_miku_section {
+        @apply h-[100svh];
+    }
+
+    .about_miku_section_miku_image {
+        @apply h-[60vh] left-[60%] top-[101%] transform-[translate(-60%,-101%)] absolute;
+    }
+
+    .about_miku_section_title {
+        @apply text-white text-[45px] w-full;
+        text-align: center;
+    }
+
+
+}
+
+/*Tablet Design*/
+@media (min-width:576px) {}
+
+@media (min-width:768px) {}

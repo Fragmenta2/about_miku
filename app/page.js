@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import React from "react";
-import Main_miku_section from "@/components/main_miku_section";
+
+import Main_miku_section from "@/components/main_miku_section.components.js";
 
 export default function Home() {
   return (
