@@ -12,7 +12,10 @@ export default function About_miku_section() {
             let main_miku_info_container = document.getElementById('main_miku_info_container');
             main_miku_info_container.style.width = about_miku_section_title.offsetWidth + "px";
             main_miku_info_container.style.height = window.innerHeight - (about_miku_section_title.offsetHeight + 150) + "px";
-            main_miku_info_container.style.top = about_miku_section_title.offsetHeight + "px";
+            main_miku_info_container.style.top = (about_miku_section_title.offsetHeight - 20) + "px";
+            if (window.innerWidth <= 960 && window.innerHeight <= 630) {
+                main_miku_info_container.style.height = "328px";
+            }
         }
     }
     re_adjust_about_miku();
@@ -26,10 +29,10 @@ export default function About_miku_section() {
             </div>
             <h1 id='about_miku_section_title' className="bebas_neue about_miku_section_title">WHO IS HATSUNE MIKU?</h1>
             <div id='main_miku_info_container' className='main_miku_info_container'>
-                <Miku_info url='images/first_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS vocaloid' description='Miku is a voice synthesizer software, a virtual singer whose voice can be used by any creator to produce original music and she is the most widely used.' color='white'/>
+                <Miku_info url='images/first_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS vocaloid' description='Miku is a voice synthesizer software, a virtual singer whose voice can be used by any creator to produce original music and she is the most widely used.' color='white' />
                 <Miku_info url='images/hatsune_hijole.jpg' bg_color='rgba(0,0,0,.6)' title='She IS a meme' description='Her image is a cornerstone of internet culture, starring in countless viral parodies, trends, and the iconic "Leekspin" animation.' color='white' />
-                <Miku_info url='images/third_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS an inspiration' description='She serves as a creative muse for a global community, inspiring countless musicians, animators, and artists to create and share original works.' color='white'/>
-                <Miku_info url='images/fourth_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS an IDOL' description='A true virtual pop star, Miku headlines sold-out concerts around the globe, performing live on stage as a stunning 3D projection.' color='white'/>
+                <Miku_info url='images/third_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS an inspiration' description='She serves as a creative muse for a global community, inspiring countless musicians, animators, and artists to create and share original works.' color='white' />
+                <Miku_info url='images/fourth_miku_slide.jpg' bg_color='rgba(0,0,0,.6)' title='She IS an IDOL' description='A true virtual pop star, Miku headlines sold-out concerts around the globe, performing live on stage as a stunning 3D projection.' color='white' />
             </div>
             <img className='about_miku_section_maleta' src='images/maleta.png'></img>
             <img className='about_miku_section_miku_image' src='images/llavero_miku_transparente.png'></img>
@@ -40,9 +43,9 @@ export default function About_miku_section() {
 
 function Miku_info(props) {
     return (
-        <div style={{background:props.bg_color}} className="miku_info_containers">
-            <img  className='miku_image_slide' src={props.url}/>    
-            <h1 style={{color:props.color}} className='miku_containers_titles bebas_neue'> {props.title}</h1>
+        <div style={{ background: props.bg_color }} className="miku_info_containers">
+            <img className='miku_image_slide' src={props.url} />
+            <h1 style={{ color: props.color }} className='miku_containers_titles bebas_neue'> {props.title}</h1>
             <p className='miku_containers_descriptions'>{props.description}</p>
         </div>
     );

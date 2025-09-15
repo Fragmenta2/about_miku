@@ -23,6 +23,7 @@ export default function Main_miku_section() {
             let cellphone_bg = document.getElementById('cellphone_bg');
             let cellphone_miku_sitting = document.getElementById('cellphone_miku_sitting');
             cellphone_miku_sitting.style.marginBottom = (cellphone_bg.offsetHeight + 40) + "px";
+            
         }
     }
 

@@ -189,6 +189,11 @@ body,
     white-space: nowrap;
 }
 
+.about_miku_section_title {
+    @apply text-white text-[calc(100vw*.085)] pl-[10px] font-bold top-0 p-0 absolute mt-[-10px];
+    white-space: nowrap;
+}
+
 .contact_miku_section_title {
     @apply text-[80px];
 }
@@ -206,8 +211,8 @@ body,
 }
 
 .contact_miku_section_navigation_menu {
-    @apply gap-2 inline-flex top-[15%] left-[50%] h-[60px];
-    transform: translate(-50%, -15%);
+    @apply gap-2 inline-flex top-[86%] left-[50%] h-[60px];
+    transform: translate(-50%, -86%);
 }
 
 .main_miku_info_container {
@@ -215,7 +220,7 @@ body,
 }
 
 .miku_info_containers {
-    @apply w-full h-[26%] bg-white rounded-2xl mb-[15px] p-[4px];
+    @apply w-full h-[29%] bg-white rounded-2xl mb-[15px] p-[4px];
 }
 
 .miku_image_slide {
@@ -256,7 +261,7 @@ body,
 }
 
 .contact_miku_section_image {
-    @apply p-[20px] rounded-[50px] object-cover mt-[50px] max-h-[65vh];
+    @apply p-[20px] rounded-[50px] object-cover mt-[-40px] max-h-[65vh];
 }
 
 .footer {
@@ -332,8 +337,8 @@ body,
     }
 
     .contact_miku_section_navigation_menu {
-        @apply gap-2 inline-flex top-[15%] left-[50%] h-[60px];
-        transform: translate(-50%, -15%);
+        @apply gap-2 inline-flex top-[77%] left-[50%] h-[60px];
+        transform: translate(-50%, -77%);
     }
 
     .about_miku_section_miku_image {
@@ -380,10 +385,16 @@ body,
         scroll-snap-align: center;
     }
 
+    .contact_miku_section_image {
+        @apply p-[20px] rounded-[50px] object-cover mt-[-140px] max-h-[65vh];
+    }
+
 }
 
 /*Tablet Design*/
 @media (min-width:576px) {
+
+    /*contact_miku_section*/
     .footer {
         @apply w-full h-[80px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
         background-color: rgba(0, 0, 0, .8);
@@ -391,6 +402,8 @@ body,
 }
 
 @media (max-width:960px) {
+
+    /*about_miku_section*/
     .about_miku_section_maleta {
         transform: translate(-50%, -30%) scale(0.8);
     }
@@ -410,7 +423,55 @@ body,
     }
 }
 
+@media (max-width:960px) and (max-height:630px) {
+
+    /*about_miku_section*/
+    .miku_info_containers {
+        @apply w-full h-[29.5%] bg-white rounded-2xl mb-[15px] p-[4px];
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 4;
+        -webkit-line-clamp: 4;
+    }
+
+    .about_miku_section_navigation_menu a img {
+        @apply w-[40px] h-[40px] p-[8px] rounded-full hover:bg-[#a6c1c6] transition-colors cursor-pointer;
+        border: 3px solid #a6c1c6;
+    }
+
+    /*All sections*/
+    .main_miku_section,
+    .about_miku_section,
+    .contact_miku_section {
+        height: 630px;
+        overflow-y: visible;
+        position: relative;
+        scroll-snap-align: none;
+    }
+
+    .contact_miku_section_image {
+        @apply p-[20px] rounded-[50px] object-cover mt-[-40px] max-h-[calc(640px*.65)];
+    }
+
+    .about_miku_section_miku_image {
+        @apply h-[calc(630px*.40)];
+    }
+
+    .cellphone_bg {
+        @apply h-[calc(630px*.63)];
+    }
+
+    .character_title {
+        @apply  h-[630px] ;
+    }
+
+
+}
+
 @media (min-width: 768px) and (min-height: 1000px) {
+
+    /*about_miku_section*/
     .miku_containers_titles {
         @apply top-[-100%] text-4xl relative left-[20%] w-[70%];
 
@@ -421,10 +482,13 @@ body,
         line-clamp: 5;
         -webkit-line-clamp: 5;
     }
+
 }
 
 /*PC Design*/
 @media (min-width:1200px) {
+
+    /*contact_miku_section*/
     .footer {
         @apply w-full h-[60px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
         background-color: rgba(0, 0, 0, .8);
