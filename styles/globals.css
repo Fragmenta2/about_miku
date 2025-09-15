@@ -17,7 +17,7 @@ body,
 }
 
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -189,11 +189,64 @@ body,
     white-space: nowrap;
 }
 
+.contact_miku_section_title {
+    @apply text-[80px];
+}
+
 .about_miku_section_miku_image {
-    @apply h-[50vh] left-[80%] top-[80%] absolute;
-    transform: translate(-80%, -80%);
+    @apply h-[40vh] left-[100%] top-[80%] absolute;
+    transform: translate(-100%, -80%);
     filter: drop-shadow(7px 70px 3px rgba(0, 0, 0, .3));
 }
+
+.about_miku_section_navigation_menu,
+.contact_miku_section_navigation_menu {
+    @apply gap-2 inline-flex top-[99%] left-[50%] h-[60px];
+    transform: translate(-50%, -99%);
+}
+
+.contact_miku_section_navigation_menu {
+    @apply gap-2 inline-flex top-[15%] left-[50%] h-[60px];
+    transform: translate(-50%, -15%);
+}
+
+.main_miku_info_container {
+    @apply pl-[5px] pr-[5px] absolute block gap-0 overflow-y-visible;
+}
+
+.miku_info_containers {
+    @apply w-full h-[26%] bg-white rounded-2xl mb-[15px] p-[4px];
+}
+
+.miku_image_slide {
+    @apply w-[17%] h-full object-cover;
+    object-position: top;
+    border-radius: 16px;
+}
+
+.miku_containers_titles {
+    @apply top-[-100%] text-2xl relative left-[20%] w-[70%];
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 3px;
+}
+
+.miku_containers_descriptions {
+    @apply top-[-107%] text-[13.5px] relative left-[20%] ml-[-5px] w-[70%] p-[5px] text-justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+}
+
+.about_miku_section_maleta {
+    @apply right-0 left-[100%] relative top-[30%];
+    transform: translate(-50%, -30%);
+    filter: drop-shadow(7px 25px 1px rgba(0, 0, 0, .3));
+}
+
 
 /*contact_miku_section*/
 
@@ -203,21 +256,14 @@ body,
 }
 
 .contact_miku_section_image {
-    @apply p-[20px] rounded-[50px] object-cover max-h-[80vh];
-    border: 2px solid rgba(0, 0, 0, .8);
-    background-color: rgba(0, 0, 0, .8);
+    @apply p-[20px] rounded-[50px] object-cover mt-[50px] max-h-[65vh];
 }
 
 .footer {
-    @apply w-full h-[130px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
+    @apply w-full h-[130px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify flex;
+    justify-content: center;
     background-color: rgba(0, 0, 0, .8);
 }
-
-
-
-
-
-
 
 
 
@@ -278,6 +324,7 @@ body,
         text-align: center;
     }
 
+
     .about_miku_section_navigation_menu,
     .contact_miku_section_navigation_menu {
         @apply gap-2 inline-flex top-[99%] left-[50%] h-[60px];
@@ -316,11 +363,15 @@ body,
     }
 
     .miku_containers_descriptions {
-        @apply top-[-107%] text-[13.5px] relative left-[28.5%] w-[70%] p-[5px] text-justify;
+        @apply top-[-107%] text-[13.5px] relative left-[30%] w-[70%] p-[5px] text-justify;
         overflow: hidden;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
+    }
+
+    .about_miku_section_maleta {
+        @apply hidden;
     }
 
     /*contact_miku_section*/
@@ -332,6 +383,50 @@ body,
 }
 
 /*Tablet Design*/
-@media (min-width:576px) {}
+@media (min-width:576px) {
+    .footer {
+        @apply w-full h-[80px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
+        background-color: rgba(0, 0, 0, .8);
+    }
+}
 
-@media (min-width:768px) {}
+@media (max-width:960px) {
+    .about_miku_section_maleta {
+        transform: translate(-50%, -30%) scale(0.8);
+    }
+
+    .about_miku_section_miku_image {
+        @apply h-[40vh] left-[100%] top-[60%] absolute;
+        transform: translate(-100%, -60%) scale(0.8);
+    }
+
+    .about_miku_section_maleta {
+        transform: translate(-50%, -30%) scale(0.8);
+    }
+
+    .about_miku_section_miku_image {
+        @apply h-[40vh] left-[100%] top-[60%] absolute;
+        transform: translate(-100%, -60%) scale(0.8);
+    }
+}
+
+@media (min-width: 768px) and (min-height: 1000px) {
+    .miku_containers_titles {
+        @apply top-[-100%] text-4xl relative left-[20%] w-[70%];
+
+    }
+
+    .miku_containers_descriptions {
+        @apply top-[-107%] text-xl relative left-[20%] pt-[15px] w-[70%] p-[5px] text-justify;
+        line-clamp: 5;
+        -webkit-line-clamp: 5;
+    }
+}
+
+/*PC Design*/
+@media (min-width:1200px) {
+    .footer {
+        @apply w-full h-[60px] absolute top-[100%] text-[12px] transform-[translateY(-100%)] p-[15px] text-justify;
+        background-color: rgba(0, 0, 0, .8);
+    }
+}
